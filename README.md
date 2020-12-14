@@ -7,7 +7,9 @@ Link to the preprint: `https://arxiv.org/abs/2012.05973`.
 ## Installation
 
 To get the latest version of the code, please run un a terminal:
+    
     git clone https://github.com/StevenGolovkine/fcubt.git
+
 
 ## Analysis of rounD dataset
 
