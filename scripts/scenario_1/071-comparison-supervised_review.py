@@ -19,6 +19,7 @@ from sklearn.utils import shuffle
 NUM_CORES = multiprocessing.cpu_count()
 
 def analyze_data(idx):
+    print(f'Simulation {idx}')
     with open(f'./data/scenario_1_{idx}.pkl', 'rb') as f:
         data_fd = pickle.load(f)
     labels = np.loadtxt('./data/labels.csv')
@@ -61,7 +62,7 @@ def analyze_data(idx):
     pred_fcubt = fcubt.predict(test, step='join')
     ARI_fcubt = adjusted_rand_score(y_test, pred_fcubt)
     
-    return {'n_clusters': len(np.unique(final_labels)),
+    return {'n_clusters': len(np.unique(fcubt.labels_join)),
             'ARI_gp': ARI_gp,
             'ARI_rf': ARI_rf,
             'ARI_fcubt': ARI_fcubt}
@@ -73,7 +74,7 @@ def main():
     results = Parallel(n_jobs=NUM_CORES)(delayed(analyze_data)(i) for i in inputs)
     print(f'{time.time() - start}')
     
-    file = open("./results_fcubt_classif_review.pkl", "wb")
+    file = open("./results/results_fcubt_classif_review.pkl", "wb")
     pickle.dump(results, file)
     file.close()
 
