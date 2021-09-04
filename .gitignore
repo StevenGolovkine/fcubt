@@ -3,5 +3,7 @@
 .Rhistory
 .ipynb_checkpoints
 
+round/data/*
+
 scripts/*/data/*
 scripts/*/results/*
