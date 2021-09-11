@@ -1,5 +1,6 @@
 import multiprocessing
 import numpy as np
+import os
 import pickle
 import sys
 import time
@@ -24,9 +25,9 @@ def analyze_data(idx):
 	fcubt.grow(n_components=[0.95, 0.95])
 	fcubt.join(n_components=[0.95, 0.95])
 	comp = time.time() - start
-	return {'comp_time': comp}
-    #return {'n_clusters': len(np.unique(fcubt.labels_join)),
-	#		'ARI': adjusted_rand_score(labels, fcubt.labels_join)}
+	
+	return {'n_clusters': len(np.unique(fcubt.labels_join)),
+			'ARI': adjusted_rand_score(labels, fcubt.labels_join)}
 
 def main():
 	inputs = range(100)
@@ -36,9 +37,9 @@ def main():
 		for i in inputs)
 	print(f'{time.time() - start}')
 	
-	file = open("./results/results_fcubt_comptime.pkl", "wb")
-	pickle.dump(results, file)
-	file.close()
+	#file = open("./results/results_fcubt_comptime.pkl", "wb")
+	#pickle.dump(results, file)
+	#file.close()
 
 if __name__ == '__main__':
 	main()
