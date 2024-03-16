@@ -1,5 +1,10 @@
 # FCUBT: Functional Clustering using Unsupervised Binary Trees
 
+Note that, the algortihm FCUBT requires the version 0.8.7 of FDApy to be runnable. To install this version, run
+
+    pip install FDApy==0.8.7
+
+
 This repository hosts the source code for the results reproducibility of the simulated and real datasets that are presented in the paper: *Clustering multivariate functional data using unsupervised binary trees*. 
 
 Link to the preprint: `https://arxiv.org/abs/2012.05973`.
